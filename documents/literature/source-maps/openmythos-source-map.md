@@ -19,11 +19,11 @@ OpenMythos is useful here as a hypothesis aggregate, not as proof of any proprie
 
 ## Candidate Primary Sources
 
-- Universal Transformers
-- Parcae / stable looped language model work
-- Reasoning with Latent Thoughts / looped Transformer work
-- Training Large Language Models to Reason in a Continuous Latent Space
-- Relaxed Recursive Transformers
+- Universal Transformers: https://arxiv.org/abs/1807.03819
+- Parcae / stable looped language model work: https://arxiv.org/abs/2604.12946
+- Reasoning with Latent Thoughts / looped Transformer work: https://arxiv.org/abs/2502.17416
+- Training Large Language Models to Reason in a Continuous Latent Space: https://arxiv.org/abs/2412.06769
+- Relaxed Recursive Transformers: https://arxiv.org/abs/2410.20672
 
 ## Questions For The Dossier
 
@@ -31,3 +31,15 @@ OpenMythos is useful here as a hypothesis aggregate, not as proof of any proprie
 - Does recurrence increase inference cost enough to offset training gains?
 - Are recurrent-depth gains still present after strong dense baselines?
 - Can recurrent blocks be combined with sparse training or early-ticket selection?
+
+## Extraction Queue
+
+For each OpenMythos-cited source, extract:
+
+- claimed architecture mechanism
+- training-efficiency axis
+- inference-efficiency axis
+- model sizes tested
+- whether recurrence is trained from scratch or adapted from an existing model
+- whether adaptive loop count is available during training, inference, or both
+- compatibility with sparse training and low-precision training

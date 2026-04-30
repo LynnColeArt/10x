@@ -7,6 +7,11 @@ Use this folder to convert papers, repos, blog posts, and aggregate projects int
 - `paper-notes/`: one note per paper or project.
 - `source-maps/`: maps from aggregate projects, survey posts, or repo bibliographies to underlying primary sources.
 
+## Working Docs
+
+- [seed-bibliography.md](seed-bibliography.md): first-pass source corpus across sparse training, recurrent depth, data efficiency, optimizer/memory work, conditional compute, and baseline calibration.
+- [non-obvious-search-map.md](non-obvious-search-map.md): lateral search strategy for creative, non-mainstream research seams.
+
 ## Priority Sources
 
 Initial targets:
