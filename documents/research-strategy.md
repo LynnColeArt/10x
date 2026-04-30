@@ -138,6 +138,7 @@ Every note should answer:
 - Does it compose with other methods?
 - What does it conflict with?
 - Is there reproducible code?
+- What replication chatter, issue threads, or follow-on work reveals hidden costs?
 - Could we test a reduced version on an RTX 4070 or DGX Spark?
 
 ## Synthesis Workflow
