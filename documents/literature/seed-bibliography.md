@@ -51,7 +51,7 @@ This is the first source corpus for the `10x+` training-efficiency investigation
 | --- | --- | --- | --- | --- |
 | Orca: Progressive Learning from Complex Explanation Traces of GPT-4 | 2 | https://arxiv.org/abs/2306.02707 | Rich teacher traces improve small-model reasoning compared with shallow imitation. | How do we account for teacher inference cost honestly? |
 | LIMA: Less Is More for Alignment | 2 | https://arxiv.org/abs/2305.11206 | Meta work showing strong alignment behavior from only carefully curated examples after pretraining. | Does this inform training efficiency, or only post-training leverage? |
-| Long Is More for Alignment | 2 | https://arxiv.org/abs/2402.04833 | Challenges LIMA-style data selection with a simple long-instruction baseline. | Which “small data” effects are robust versus benchmark artifacts? |
+| Long Is More for Alignment | 2 | https://arxiv.org/abs/2402.04833 | Challenges LIMA-style data selection with a simple long-instruction baseline. | Which "small data" effects are robust versus benchmark artifacts? |
 
 ## Optimizer, Precision, And Memory Efficiency
 
@@ -95,14 +95,24 @@ This is the first source corpus for the `10x+` training-efficiency investigation
 3. [Dynamic Sparse Training with Structured Sparsity](paper-notes/2024-structured-rigl.md)
 4. [DataComp-LM](paper-notes/2024-datacomp-lm.md)
 5. [Parcae](paper-notes/2026-parcae.md)
+6. [DoReMi](paper-notes/2023-doremi.md)
+7. [Cramming](paper-notes/2022-cramming.md)
+8. [Reasoning with Latent Thoughts](paper-notes/2025-reasoning-with-latent-thoughts.md)
+9. [GaLore](paper-notes/2024-galore.md)
+10. [Q-GaLore](paper-notes/2024-q-galore.md)
 
 ## Next Paper Notes To Write
 
-1. DoReMi
-2. Cramming
-3. Reasoning with Latent Thoughts
-4. GaLore
-5. Q-GaLore
+1. Sophia
+2. 8-bit Optimizers via Block-wise Quantization
+3. QLoRA
+4. Textbooks Are All You Need
+5. TinyStories
+6. LIMA
+7. Orca
+8. Mamba
+9. RWKV
+10. Universal Transformers
 
 ## Known Open Questions
 

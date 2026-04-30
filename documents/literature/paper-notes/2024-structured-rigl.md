@@ -44,6 +44,13 @@ The strongest project-relevant evidence is not the vision accuracy itself; it is
 
 Capability preservation is measured through generalization on vision architectures, including CNNs and ViT. There is no LLM reasoning evidence yet.
 
+## Accidental Or Side-Effect Signal
+
+- Original goal: Make dynamic sparse training compatible with structured sparsity.
+- Unexpected or secondary finding: The paper makes clear that sparsity has to be shaped for kernels, not just counted as zero weights.
+- Why it matters for `10x+` training efficiency: It converts sparse-training evidence from abstract parameter reduction into hardware-legible training design.
+- Risk of overinterpreting the side effect: Layer-level acceleration does not guarantee end-to-end LLM training acceleration at realistic batch sizes.
+
 ## Hardware Reality
 
 This paper is highly relevant because it attacks the biggest practical weakness of the lottery-ticket lane: unstructured masks are often fake speedups. SRigL's `N:M`-style constant fan-in structure is closer to what real kernels can exploit.

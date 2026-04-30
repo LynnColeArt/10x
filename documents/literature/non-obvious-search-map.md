@@ -10,7 +10,26 @@ For each lateral lane, we ask:
 - Does it offer a mechanism, not just a metaphor?
 - Can the mechanism be expressed as a small experiment?
 - Does it reduce training cost, shift cost elsewhere, or only improve inference?
+- Was the efficiency clue intentional, or did it emerge as an accidental side effect while solving another problem?
 - What would make us stop pursuing it?
+
+## Accident And Side-Effect Lens
+
+Many useful clues will not be titled "training efficiency." We should actively inspect papers where the primary objective was something else, then ask whether a secondary result reveals wasted training compute.
+
+High-value accident patterns:
+
+- A stability fix accidentally allows much deeper recurrence or lower precision.
+- A memory-saving method accidentally enables full-parameter training on commodity GPUs.
+- A data benchmark accidentally reveals that curation dominates architecture at fixed compute.
+- An alignment or distillation paper accidentally shows that tiny curated sets control behavior more than expected.
+- A pruning paper accidentally exposes persistent structure early in training.
+- A deployment compression paper accidentally reveals which weights, heads, layers, or examples do not matter.
+- A failed scaling attempt accidentally identifies where extra parameters stop paying rent.
+
+Documentation rule:
+
+Every paper note should include an `Accidental Or Side-Effect Signal` section, even if the answer is "none obvious." This keeps us from only reading papers through their authors' stated intent.
 
 ## Lateral Lanes
 

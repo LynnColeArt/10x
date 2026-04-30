@@ -44,6 +44,13 @@ One documentation wrinkle: the public repository README mentions up to `4.7x` en
 
 Capability preservation is classification accuracy on vision datasets. There is no evidence here about LLM perplexity, instruction following, or reasoning preservation.
 
+## Accidental Or Side-Effect Signal
+
+- Original goal: Reduce pruning and retraining cost for deep networks.
+- Unexpected or secondary finding: Useful masks can stabilize far earlier than full convergence.
+- Why it matters for `10x+` training efficiency: This is the point where lottery-ticket thinking starts becoming a possible training-time saving rather than only post-hoc compression.
+- Risk of overinterpreting the side effect: Early mask stability in CNNs may not transfer to autoregressive Transformers or reasoning-capable language models.
+
 ## Hardware Reality
 
 More practical than the original lottery-ticket workflow because it tries to avoid dense discovery cost. However, whether it produces real speedups for LLMs depends on the sparsity structure and kernel support. Channel pruning in CNNs is more hardware-friendly than arbitrary Transformer weight sparsity.

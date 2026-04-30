@@ -46,6 +46,13 @@ The public repository provides installable models and training configs, includin
 
 Capability preservation is measured through language-model loss and CORE/Core-Extended style benchmark quality. This is relevant but not yet a complete reasoning evaluation.
 
+## Accidental Or Side-Effect Signal
+
+- Original goal: Stabilize looped language models and study their scaling behavior.
+- Unexpected or secondary finding: Parameter reuse can recover a meaningful fraction of a larger static-depth Transformer's quality.
+- Why it matters for `10x+` training efficiency: It suggests depth-like computation and parameter count can be decoupled, which is central to commodity-memory training.
+- Risk of overinterpreting the side effect: The method may save parameters while increasing sequential compute, so it is not automatically a training-efficiency win.
+
 ## Hardware Reality
 
 Parcae is promising for memory-constrained hardware because repeated depth can reuse parameters. The danger is compute: a looped model can be cheaper in memory but more expensive in wall-clock per token. For commodity training, the key question is whether parameter reuse lets us train a model that would otherwise not fit, and whether the resulting quality-per-dollar beats a smaller dense model.

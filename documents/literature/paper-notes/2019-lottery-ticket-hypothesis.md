@@ -51,6 +51,13 @@ The key algorithm is:
 
 Capability preservation is measured as classification accuracy on MNIST/CIFAR-style tasks. This is useful but far from reasoning-capable LLM behavior.
 
+## Accidental Or Side-Effect Signal
+
+- Original goal: Understand trainable sparse subnetworks found by pruning.
+- Unexpected or secondary finding: Dense training appears to expose smaller circuits that can train successfully from their original initialization.
+- Why it matters for `10x+` training efficiency: If circuit discovery and circuit fitting can be separated, dense pretraining may be doing avoidable search work.
+- Risk of overinterpreting the side effect: The discovery process itself pays dense training cost, and the evidence is not LLM reasoning evidence.
+
 ## Hardware Reality
 
 The sparse masks are unstructured. That matters: parameter count and theoretical FLOPs go down, but commodity GPUs will not necessarily get proportional wall-clock speedups without structured sparsity or custom kernels.

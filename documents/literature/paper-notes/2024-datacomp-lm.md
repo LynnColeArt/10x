@@ -45,6 +45,13 @@ The repository includes processing, filtering, deduplication, tokenization, shuf
 
 Capability is measured through MMLU and a broad 53-task NLU suite. This is much more relevant to our target than MNIST/CIFAR, though still not a full reasoning-product evaluation.
 
+## Accidental Or Side-Effect Signal
+
+- Original goal: Build a benchmark and controlled competition for language-model data curation.
+- Unexpected or secondary finding: Dataset construction can rival or exceed many model-recipe changes at fixed compute.
+- Why it matters for `10x+` training efficiency: It suggests a large fraction of training waste may live in token selection rather than architecture.
+- Risk of overinterpreting the side effect: Full-scale curation may require large raw corpora, preprocessing infrastructure, and filtering compute that small labs do not have.
+
 ## Hardware Reality
 
 The full DCLM pipeline is probably too large for casual local reproduction. However, the mechanism scales down well: we can run miniature data-selection experiments using small corpora and proxy models on the RTX 4070, then use DGX Spark for larger ablations.

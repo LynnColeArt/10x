@@ -42,6 +42,13 @@ What experiments were run? Include model size, data, hardware, and evaluation ta
 
 What capabilities were preserved, improved, or lost?
 
+## Accidental Or Side-Effect Signal
+
+- Original goal:
+- Unexpected or secondary finding:
+- Why it matters for `10x+` training efficiency:
+- Risk of overinterpreting the side effect:
+
 ## Hardware Reality
 
 Would the claimed efficiency produce real speedups on commodity hardware?

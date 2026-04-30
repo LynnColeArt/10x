@@ -30,6 +30,7 @@ Important guardrails:
 - Do not ignore hardware reality. Unstructured sparsity is not a speedup unless the target hardware benefits.
 - Do not let teacher-model distillation hide the real cost unless we explicitly account for it.
 - Do not assume dense frontier-lab pretraining is the only route to reasoning capability.
+- Look for accidents and side effects. Some of the most important clues may appear as secondary findings in work that was nominally about alignment, stability, dataset benchmarking, pruning, deployment, or memory limits.
 
 ## Initial Research Lanes
 
@@ -131,6 +132,7 @@ Every note should answer:
 - Is the work about pretraining, continued pretraining, fine-tuning, pruning, inference, or evaluation?
 - What model sizes and datasets were tested?
 - What capability was preserved, improved, or lost?
+- Was the efficiency clue the paper's original goal, or an accidental side effect?
 - Is the efficiency measured in FLOPs, memory, wall-clock, energy, or something else?
 - Does the method save real time on real hardware?
 - Does it compose with other methods?
