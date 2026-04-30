@@ -88,18 +88,21 @@ This is the first source corpus for the `10x+` training-efficiency investigation
 | Training Compute-Optimal Large Language Models | 1 | https://arxiv.org/abs/2203.15556 | Chinchilla-style compute-optimal baseline for dense training. | What baseline do we compare against for small local models? |
 | Measuring the Algorithmic Efficiency of Neural Networks | 2 | https://arxiv.org/abs/2005.04305 | Framework for algorithmic efficiency progress over time. | How do we avoid fake `10x` accounting? |
 
-## First Paper Notes To Write
+## First Paper Notes Written
 
-1. Lottery Ticket Hypothesis
-2. Drawing Early-Bird Tickets
-3. Dynamic Sparse Training with Structured Sparsity
-4. DataComp-LM
-5. DoReMi
-6. Cramming
-7. Parcae
-8. Reasoning with Latent Thoughts
-9. GaLore
-10. Q-GaLore
+1. [Lottery Ticket Hypothesis](paper-notes/2019-lottery-ticket-hypothesis.md)
+2. [Drawing Early-Bird Tickets](paper-notes/2020-early-bird-tickets.md)
+3. [Dynamic Sparse Training with Structured Sparsity](paper-notes/2024-structured-rigl.md)
+4. [DataComp-LM](paper-notes/2024-datacomp-lm.md)
+5. [Parcae](paper-notes/2026-parcae.md)
+
+## Next Paper Notes To Write
+
+1. DoReMi
+2. Cramming
+3. Reasoning with Latent Thoughts
+4. GaLore
+5. Q-GaLore
 
 ## Known Open Questions
 
