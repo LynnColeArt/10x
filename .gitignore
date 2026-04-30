@@ -1,0 +1,28 @@
+# Local environments
+.venv/
+venv/
+node_modules/
+__pycache__/
+.pytest_cache/
+
+# Research/runtime artifacts
+documents/artifacts/*
+!documents/artifacts/README.md
+data/
+datasets/
+checkpoints/
+runs/
+wandb/
+mlruns/
+
+# Large model outputs
+*.ckpt
+*.pt
+*.pth
+*.safetensors
+*.gguf
+
+# OS/editor noise
+.DS_Store
+*.swp
+*.swo
