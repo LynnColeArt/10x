@@ -17,3 +17,7 @@ Structured notes for papers and projects that matter to the `10x+` training-effi
 - [2025-reasoning-with-latent-thoughts.md](2025-reasoning-with-latent-thoughts.md)
 - [2024-galore.md](2024-galore.md)
 - [2024-q-galore.md](2024-q-galore.md)
+
+## Systems Case Studies
+
+- [2026-deepseek-v4.md](2026-deepseek-v4.md)

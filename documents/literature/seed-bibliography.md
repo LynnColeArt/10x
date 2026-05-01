@@ -71,6 +71,7 @@ This is the first source corpus for the `10x+` training-efficiency investigation
 | Switch Transformers | 2 | https://arxiv.org/abs/2101.03961 | Sparse expert activation gives more capacity per token FLOP. | Does MoE help commodity training, or does routing/communication overhead dominate? |
 | GLaM: Efficient Scaling of Language Models with Mixture-of-Experts | 2 | https://arxiv.org/abs/2112.06905 | Strong sparse-activation efficiency evidence at large scale. | Are there small-scale MoE regimes that actually help? |
 | DeepSeekMoE: Towards Ultimate Expert Specialization | 2 | https://arxiv.org/abs/2401.06066 | Modern expert-specialization architecture. | Can expert specialization reduce total training tokens? |
+| DeepSeek-V4: Towards Highly Efficient Million-Token Context Intelligence | 1 | https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/blob/main/DeepSeek_V4.pdf | Frontier systems case study combining MoE, hybrid attention, Muon, mHC, curriculum, routing stabilization, and custom kernels. | Which parts survive scale-down to commodity hardware and improve training, not just long-context serving? |
 | Mixtral of Experts | 2 | https://arxiv.org/abs/2401.04088 | Widely used sparse MoE reference model. | What does its architecture imply for small local MoE experiments? |
 
 ## Architecture Alternatives And Edge Cases
@@ -100,19 +101,23 @@ This is the first source corpus for the `10x+` training-efficiency investigation
 8. [Reasoning with Latent Thoughts](paper-notes/2025-reasoning-with-latent-thoughts.md)
 9. [GaLore](paper-notes/2024-galore.md)
 10. [Q-GaLore](paper-notes/2024-q-galore.md)
+11. [DeepSeek-V4](paper-notes/2026-deepseek-v4.md)
 
 ## Next Paper Notes To Write
 
-1. Sophia
-2. 8-bit Optimizers via Block-wise Quantization
-3. QLoRA
-4. Textbooks Are All You Need
-5. TinyStories
-6. LIMA
-7. Orca
-8. Mamba
-9. RWKV
-10. Universal Transformers
+1. Muon / Muon is Scalable for LLM Training
+2. Manifold-Constrained Hyper-Connections
+3. DeepSeek Sparse Attention / DSA
+4. Sophia
+5. 8-bit Optimizers via Block-wise Quantization
+6. QLoRA
+7. Textbooks Are All You Need
+8. TinyStories
+9. LIMA
+10. Orca
+11. Mamba
+12. RWKV
+13. Universal Transformers
 
 ## Known Open Questions
 

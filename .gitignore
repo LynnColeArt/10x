@@ -8,6 +8,8 @@ __pycache__/
 # Research/runtime artifacts
 documents/artifacts/*
 !documents/artifacts/README.md
+deepseek.txt
+*.transcript.txt
 data/
 datasets/
 checkpoints/
