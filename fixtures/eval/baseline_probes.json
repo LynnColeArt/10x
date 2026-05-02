@@ -1,0 +1,26 @@
+{
+  "probes": [
+    {
+      "name": "capital-france",
+      "prompt": "The capital of France is ",
+      "expected": "Paris.",
+      "match": "contains",
+      "max_new_tokens": 12
+    },
+    {
+      "name": "simple-addition",
+      "prompt": "2 + 3 = ",
+      "expected": "5",
+      "match": "contains",
+      "max_new_tokens": 6
+    },
+    {
+      "name": "code-add",
+      "prompt": "def add(a, b):\n    ",
+      "expected": "return a + b",
+      "match": "contains",
+      "max_new_tokens": 18
+    }
+  ]
+}
+

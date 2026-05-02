@@ -1,0 +1,3 @@
+{"text":"def add(a, b):\n    return a + b"}
+{"text":"value = square(3)"}
+

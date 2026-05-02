@@ -1,0 +1,43 @@
+{
+  "name": "sample-baseline",
+  "description": "Small local sample corpus for baseline harness verification across general text, educational text, code, and math.",
+  "splits": {
+    "train": [
+      {
+        "path": "train/general.jsonl",
+        "source": "general"
+      },
+      {
+        "path": "train/education.jsonl",
+        "source": "education"
+      },
+      {
+        "path": "train/code.jsonl",
+        "source": "code"
+      },
+      {
+        "path": "train/math.jsonl",
+        "source": "math"
+      }
+    ],
+    "validation": [
+      {
+        "path": "validation/general.jsonl",
+        "source": "general"
+      },
+      {
+        "path": "validation/education.jsonl",
+        "source": "education"
+      },
+      {
+        "path": "validation/code.jsonl",
+        "source": "code"
+      },
+      {
+        "path": "validation/math.jsonl",
+        "source": "math"
+      }
+    ]
+  }
+}
+

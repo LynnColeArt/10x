@@ -1,0 +1,9 @@
+{"text":"def add(a, b):\n    return a + b"}
+{"text":"def multiply(a, b):\n    return a * b"}
+{"text":"for item in items:\n    print(item)"}
+{"text":"if value > limit:\n    status = 'high'\nelse:\n    status = 'ok'"}
+{"text":"class Counter:\n    def __init__(self):\n        self.value = 0"}
+{"text":"numbers = [1, 2, 3]\ntotal = sum(numbers)"}
+{"text":"def square(x):\n    return x * x"}
+{"text":"result = add(2, 3)"}
+

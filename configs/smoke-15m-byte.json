@@ -1,0 +1,42 @@
+{
+  "name": "smoke-15m-byte",
+  "description": "Smoke-tier dense baseline around the 15M parameter target using the local byte tokenizer.",
+  "tags": ["baseline", "smoke-15m", "byte-tokenizer"],
+  "paths": {
+    "manifest_path": "fixtures/sample-baseline/manifest.json",
+    "eval_probes_path": "fixtures/eval/baseline_probes.json",
+    "output_dir": "runs"
+  },
+  "model": {
+    "hidden_size": 336,
+    "num_layers": 9,
+    "num_heads": 6,
+    "mlp_ratio": 4.0,
+    "dropout": 0.0,
+    "max_position_embeddings": 256,
+    "norm_type": "rmsnorm",
+    "activation": "swiglu",
+    "rope_theta": 10000.0
+  },
+  "training": {
+    "sequence_length": 128,
+    "micro_batch_size": 8,
+    "gradient_accumulation_steps": 1,
+    "learning_rate": 0.0004,
+    "weight_decay": 0.1,
+    "warmup_steps": 20,
+    "max_steps": 200,
+    "log_every_steps": 10,
+    "eval_every_steps": 50,
+    "save_every_steps": 50,
+    "max_eval_batches": 16,
+    "max_grad_norm": 1.0,
+    "beta1": 0.9,
+    "beta2": 0.95,
+    "device": "auto",
+    "precision": "auto",
+    "compile_model": false,
+    "seed": 1234,
+    "dataloader_workers": 0
+  }
+}

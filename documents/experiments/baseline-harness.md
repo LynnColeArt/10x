@@ -156,6 +156,12 @@ Each completed run should create a run note with:
 4. Run the AdamW baseline twice with different seeds to estimate variance.
 5. Only then compare Muon, data-mixture weighting, sparse training, recurrence, or curriculum.
 
+## Implementation Note
+
+The repo includes a working reference harness in `thousand_to_one/` with verification configs in `configs/` and a tiny local sample manifest in `fixtures/sample-baseline/`.
+
+Those shipped configs are for harness validation and local iteration. The serious baseline run still needs a real corpus manifest, a finalized tokenizer decision, and sequence-length settings aligned with the baseline contract.
+
 ## Failure Criteria
 
 Pause candidate experiments if the baseline has any of these failures:
@@ -166,4 +172,3 @@ Pause candidate experiments if the baseline has any of these failures:
 - GPU utilization is consistently low and unexplained.
 - Evaluation prompts are unstable or manually judged.
 - A candidate method changes more than one variable at once.
-

@@ -7,6 +7,7 @@ Experiments should answer one sharp question at a time. A failed experiment is u
 ## Baseline Contract
 
 - [baseline-harness.md](baseline-harness.md): the dense autoregressive reference run that every candidate must beat or explain.
+- Reference implementation: `thousand_to_one/` with run configs in `configs/`.
 
 ## First Experiment Cards
 
