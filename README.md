@@ -16,6 +16,18 @@ Quick verification run:
 python3 -m thousand_to_one.train --config configs/tiny-dev-byte.json
 ```
 
+Prepare the first real smoke corpus:
+
+```bash
+python3 -m thousand_to_one.prepare_corpus --output-dir data/real-smoke-v1
+```
+
+Run the first real-source smoke baseline:
+
+```bash
+python3 -m thousand_to_one.train --config configs/smoke-15m-real-v1.json
+```
+
 Larger baseline configs:
 
 - `configs/smoke-15m-byte.json`

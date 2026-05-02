@@ -15,6 +15,10 @@ Experiments should answer one sharp question at a time. A failed experiment is u
 2. [AdamW Versus Muon](0002-adamw-vs-muon.md)
 3. [Mini DataComp/DoReMi Loop](0003-mini-datacomp-doremi-loop.md)
 
+## Run Notes
+
+- [run-notes/README.md](run-notes/README.md): tracked summaries of important runs whose raw artifacts live under ignored runtime directories.
+
 ## Accounting Rule
 
 No experiment gets `10x` credit unless it reports the axis it improved and the costs it may have shifted elsewhere: FLOPs, wall-clock, memory, data, preprocessing, evaluation quality, or hidden teacher cost.
