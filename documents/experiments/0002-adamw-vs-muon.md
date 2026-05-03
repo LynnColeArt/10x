@@ -63,3 +63,9 @@ Downgrade Muon if:
 
 This card is motivated by DeepSeek-V4, but we must not inherit DeepSeek-scale conclusions. The local question is narrower: does Muon help our hardware and model sizes enough to earn a place in the stack?
 
+Current status as of `2026-05-03`:
+
+- The RTX 4070 `smoke-15m` comparison is complete with two seeds per optimizer.
+- Muon improved final validation loss by about `0.0358` on average and reduced peak VRAM by about `9.4%`.
+- Muon was about `14.3%` slower wall-clock on average, so it is not yet a time-to-loss win.
+- The next checkpoint is a `probe-60m` comparison to see whether the small quality gain survives long enough to matter.

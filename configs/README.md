@@ -11,8 +11,10 @@ python3 -m thousand_to_one.train --config configs/smoke-15m-real-v1.json --seed 
 ## Included Configs
 
 - `tiny-dev-byte.json`: tiny verification run used to prove the harness works end-to-end.
+- `tiny-dev-byte-muon.json`: tiny verification run for the Muon optimizer path.
 - `smoke-15m-byte.json`: smoke-tier scaffold near the `15M` parameter target.
 - `smoke-15m-real-v1.json`: first real-source smoke run on the RTX 4070, pointing at `data/real-smoke-v1/`.
+- `smoke-15m-real-v1-muon.json`: Muon variant of the real-source smoke baseline for optimizer comparison.
 - `probe-60m-byte.json`: probe-tier scaffold near the `60M` parameter target.
 - `main-130m-byte.json`: DGX Spark-oriented scaffold near the `130M` parameter target.
 

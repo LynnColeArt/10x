@@ -39,6 +39,7 @@ class TrainingConfig:
     max_steps: int | None = None
     max_tokens: int | None = None
     max_duration_seconds: float | None = None
+    optimizer: str = "adamw"
     log_every_steps: int = 1
     eval_every_steps: int = 10
     save_every_steps: int = 10
@@ -46,6 +47,11 @@ class TrainingConfig:
     max_grad_norm: float = 1.0
     beta1: float = 0.9
     beta2: float = 0.95
+    adam_epsilon: float = 1e-8
+    muon_momentum: float = 0.95
+    muon_nesterov: bool = True
+    muon_ns_steps: int = 5
+    muon_scale_coefficient: float = 0.2
     device: str = "auto"
     precision: str = "auto"
     compile_model: bool = False
@@ -82,4 +88,3 @@ def load_run_config(path: str | Path) -> RunConfig:
         training=TrainingConfig(**payload["training"]),
         tags=payload.get("tags", []),
     )
-

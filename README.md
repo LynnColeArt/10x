@@ -34,6 +34,12 @@ Run the same config with a different seed:
 python3 -m thousand_to_one.train --config configs/smoke-15m-real-v1.json --seed 4321
 ```
 
+Run the first Muon comparison on the same real-smoke corpus:
+
+```bash
+python3 -m thousand_to_one.train --config configs/smoke-15m-real-v1-muon.json
+```
+
 Larger baseline configs:
 
 - `configs/smoke-15m-byte.json`

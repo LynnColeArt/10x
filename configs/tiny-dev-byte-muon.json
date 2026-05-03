@@ -1,0 +1,50 @@
+{
+  "name": "tiny-dev-byte-muon",
+  "description": "Tiny verification config for exercising the Muon code path end-to-end.",
+  "tags": ["muon", "verification", "byte-tokenizer"],
+  "paths": {
+    "manifest_path": "fixtures/sample-baseline/manifest.json",
+    "eval_probes_path": "fixtures/eval/baseline_probes.json",
+    "output_dir": "runs"
+  },
+  "model": {
+    "hidden_size": 128,
+    "num_layers": 2,
+    "num_heads": 4,
+    "mlp_ratio": 4.0,
+    "dropout": 0.0,
+    "max_position_embeddings": 128,
+    "norm_type": "rmsnorm",
+    "activation": "swiglu",
+    "rope_theta": 10000.0
+  },
+  "training": {
+    "optimizer": "muon",
+    "sequence_length": 64,
+    "micro_batch_size": 4,
+    "gradient_accumulation_steps": 1,
+    "learning_rate": 0.001,
+    "weight_decay": 0.1,
+    "warmup_steps": 2,
+    "max_steps": 6,
+    "max_tokens": 1536,
+    "log_every_steps": 1,
+    "eval_every_steps": 3,
+    "save_every_steps": 3,
+    "max_eval_batches": 4,
+    "max_grad_norm": 1.0,
+    "beta1": 0.9,
+    "beta2": 0.95,
+    "adam_epsilon": 1e-8,
+    "muon_momentum": 0.95,
+    "muon_nesterov": true,
+    "muon_ns_steps": 5,
+    "muon_scale_coefficient": 0.2,
+    "device": "auto",
+    "precision": "auto",
+    "compile_model": false,
+    "seed": 1234,
+    "dataloader_workers": 0
+  }
+}
+

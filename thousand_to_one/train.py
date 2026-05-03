@@ -19,6 +19,7 @@ from torch.utils.data import DataLoader
 from .config import RunConfig, load_run_config
 from .data import TokenWindowDataset, load_manifest, tokenize_split
 from .model import TransformerLM
+from .optimizers import Muon
 from .tokenizer import ByteTokenizer
 
 
@@ -113,22 +114,77 @@ def build_scheduler(
 
 def build_optimizer(model: nn.Module, config: RunConfig) -> torch.optim.Optimizer:
     training = config.training
-    decay_params = []
-    no_decay_params = []
+    optimizer_name = training.optimizer.lower()
+    if optimizer_name not in {"adamw", "muon"}:
+        raise ValueError(
+            f"Unsupported optimizer '{training.optimizer}'. Expected one of: adamw, muon."
+        )
+    muon_params = []
+    adamw_decay_params = []
+    adamw_no_decay_params = []
     for name, parameter in model.named_parameters():
         if not parameter.requires_grad:
             continue
-        if parameter.ndim < 2 or name.endswith("weight") and "norm" in name:
-            no_decay_params.append(parameter)
+        use_muon = (
+            optimizer_name == "muon"
+            and parameter.ndim == 2
+            and "token_embedding" not in name
+            and "lm_head" not in name
+        )
+        if use_muon:
+            muon_params.append(parameter)
+        elif parameter.ndim < 2 or "norm" in name or name.endswith("bias"):
+            adamw_no_decay_params.append(parameter)
         else:
-            decay_params.append(parameter)
+            adamw_decay_params.append(parameter)
+
+    if optimizer_name == "muon":
+        param_groups: list[dict[str, Any]] = []
+        if muon_params:
+            param_groups.append(
+                {
+                    "params": muon_params,
+                    "use_muon": True,
+                    "lr": training.learning_rate,
+                    "weight_decay": training.weight_decay,
+                    "momentum": training.muon_momentum,
+                    "nesterov": training.muon_nesterov,
+                    "ns_steps": training.muon_ns_steps,
+                    "muon_scale_coefficient": training.muon_scale_coefficient,
+                }
+            )
+        if adamw_decay_params:
+            param_groups.append(
+                {
+                    "params": adamw_decay_params,
+                    "use_muon": False,
+                    "lr": training.learning_rate,
+                    "weight_decay": training.weight_decay,
+                    "betas": (training.beta1, training.beta2),
+                    "eps": training.adam_epsilon,
+                }
+            )
+        if adamw_no_decay_params:
+            param_groups.append(
+                {
+                    "params": adamw_no_decay_params,
+                    "use_muon": False,
+                    "lr": training.learning_rate,
+                    "weight_decay": 0.0,
+                    "betas": (training.beta1, training.beta2),
+                    "eps": training.adam_epsilon,
+                }
+            )
+        return Muon(param_groups)
+
     return torch.optim.AdamW(
         [
-            {"params": decay_params, "weight_decay": training.weight_decay},
-            {"params": no_decay_params, "weight_decay": 0.0},
+            {"params": adamw_decay_params, "weight_decay": training.weight_decay},
+            {"params": adamw_no_decay_params, "weight_decay": 0.0},
         ],
         lr=training.learning_rate,
         betas=(training.beta1, training.beta2),
+        eps=training.adam_epsilon,
     )
 
 
@@ -269,6 +325,7 @@ def write_run_note(
         f"- Date: {summary['started_at']}",
         f"- Run ID: {summary['run_id']}",
         f"- Seed: {summary['seed']}",
+        f"- Optimizer: {summary['optimizer']}",
         f"- Device: {device}",
         f"- Precision: {dtype}",
         f"- Parameters: {parameter_count}",
@@ -538,6 +595,7 @@ def train(config: RunConfig) -> Path:
         "run_id": output_dir.name,
         "started_at": started_at,
         "seed": config.training.seed,
+        "optimizer": config.training.optimizer,
         "steps_completed": step,
         "tokens_seen": tokens_seen,
         "train_wall_clock_seconds": time.perf_counter() - train_started,

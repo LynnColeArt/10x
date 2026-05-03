@@ -1,0 +1,48 @@
+{
+  "name": "smoke-15m-real-v1-muon",
+  "description": "First Muon comparison run on the real-source smoke baseline using the RTX 4070.",
+  "tags": ["muon", "smoke-15m", "real-corpus", "byte-tokenizer"],
+  "paths": {
+    "manifest_path": "data/real-smoke-v1/manifest.json",
+    "eval_probes_path": "fixtures/eval/baseline_probes.json",
+    "output_dir": "runs"
+  },
+  "model": {
+    "hidden_size": 336,
+    "num_layers": 9,
+    "num_heads": 6,
+    "mlp_ratio": 4.0,
+    "dropout": 0.0,
+    "max_position_embeddings": 512,
+    "norm_type": "rmsnorm",
+    "activation": "swiglu",
+    "rope_theta": 10000.0
+  },
+  "training": {
+    "optimizer": "muon",
+    "sequence_length": 512,
+    "micro_batch_size": 4,
+    "gradient_accumulation_steps": 1,
+    "learning_rate": 0.0004,
+    "weight_decay": 0.1,
+    "warmup_steps": 10,
+    "max_steps": 60,
+    "log_every_steps": 10,
+    "eval_every_steps": 20,
+    "save_every_steps": 20,
+    "max_eval_batches": 8,
+    "max_grad_norm": 1.0,
+    "beta1": 0.9,
+    "beta2": 0.95,
+    "adam_epsilon": 1e-8,
+    "muon_momentum": 0.95,
+    "muon_nesterov": true,
+    "muon_ns_steps": 5,
+    "muon_scale_coefficient": 0.2,
+    "device": "auto",
+    "precision": "auto",
+    "compile_model": false,
+    "seed": 1234,
+    "dataloader_workers": 0
+  }
+}
