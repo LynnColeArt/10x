@@ -2,6 +2,12 @@
 
 These JSON configs drive the local training harness in `thousand_to_one/`.
 
+The trainer also accepts a CLI seed override:
+
+```bash
+python3 -m thousand_to_one.train --config configs/smoke-15m-real-v1.json --seed 4321
+```
+
 ## Included Configs
 
 - `tiny-dev-byte.json`: tiny verification run used to prove the harness works end-to-end.

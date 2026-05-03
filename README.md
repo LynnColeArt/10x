@@ -28,6 +28,12 @@ Run the first real-source smoke baseline:
 python3 -m thousand_to_one.train --config configs/smoke-15m-real-v1.json
 ```
 
+Run the same config with a different seed:
+
+```bash
+python3 -m thousand_to_one.train --config configs/smoke-15m-real-v1.json --seed 4321
+```
+
 Larger baseline configs:
 
 - `configs/smoke-15m-byte.json`

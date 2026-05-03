@@ -25,7 +25,19 @@ from .tokenizer import ByteTokenizer
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Train the Thousand To One baseline harness.")
     parser.add_argument("--config", required=True, help="Path to a JSON run configuration.")
+    parser.add_argument(
+        "--seed",
+        type=int,
+        default=None,
+        help="Optional override for training.seed in the run config.",
+    )
     return parser.parse_args()
+
+
+def apply_overrides(config: RunConfig, args: argparse.Namespace) -> RunConfig:
+    if args.seed is not None:
+        config.training.seed = args.seed
+    return config
 
 
 def set_seed(seed: int) -> None:
@@ -256,6 +268,7 @@ def write_run_note(
         "",
         f"- Date: {summary['started_at']}",
         f"- Run ID: {summary['run_id']}",
+        f"- Seed: {summary['seed']}",
         f"- Device: {device}",
         f"- Precision: {dtype}",
         f"- Parameters: {parameter_count}",
@@ -524,6 +537,7 @@ def train(config: RunConfig) -> Path:
     summary = {
         "run_id": output_dir.name,
         "started_at": started_at,
+        "seed": config.training.seed,
         "steps_completed": step,
         "tokens_seen": tokens_seen,
         "train_wall_clock_seconds": time.perf_counter() - train_started,
@@ -551,7 +565,7 @@ def train(config: RunConfig) -> Path:
 
 def main() -> None:
     args = parse_args()
-    config = load_run_config(args.config)
+    config = apply_overrides(load_run_config(args.config), args)
     output_dir = train(config)
     print(output_dir)
 
